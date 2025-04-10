@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { placesData } from "../data/placeData"; // Assuming placesData is available
 import PlacesModal from "../components/modal/PlacesModal";
 import AlertModal from "../components/modal/AlertModal";
-
-const PlacesTable = ({ onSelectPlace, showSavedLocations = true })  => {
+import Sidebar from "../components/SideBar";
+const PlacesTable = ({ page,  onSelectPlace, showSavedLocations = true })  => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAlertOpen, setIsAlertOpen] = useState(false);
@@ -31,8 +31,10 @@ const PlacesTable = ({ onSelectPlace, showSavedLocations = true })  => {
   };
 
   return (
-    <div className="p-4 bg-gray-50 min-h-screen">
+    <div className="p-4 bg-gray-50 min-h-screen flex">
+      <Sidebar/>
       {/* Search and Add Button */}
+      <div className="inline-block ml-4">
       <div className="flex flex-col md:flex-row items-center justify-between mb-4">
         <input
           type="text"
@@ -42,7 +44,7 @@ const PlacesTable = ({ onSelectPlace, showSavedLocations = true })  => {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         <button
-          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
+          className="px-4 py-2 bg-green-500/70 border-green-500 border-2 text-white rounded hover:bg-green-700"
           onClick={() => setIsModalOpen(true)}
         >
           Add New Place
@@ -52,7 +54,7 @@ const PlacesTable = ({ onSelectPlace, showSavedLocations = true })  => {
       {/* Bento Grid Layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Table for Viewing Places on Map */}
-        <div className="bg-white shadow-lg rounded-lg p-4">
+        <div className={`p-4 ${page === "placetable" ? "bg-white shadow-lg rounded-lg" : ""}`}>
           <h2 className="text-lg font-semibold mb-2">Places to View on Map</h2>
           <table className="w-full border-collapse border border-gray-300">
             <thead>
@@ -73,7 +75,7 @@ const PlacesTable = ({ onSelectPlace, showSavedLocations = true })  => {
                   <td className="border p-2">{place.ticketFee || "Free"}</td>
                   <td className="border p-2">
                     <button
-                      className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+                      className="px-4 py-2 bg-blue-500/70 border-2 border-blue-500 text-white rounded hover:bg-blue-700"
                       onClick={() => onSelectPlace(place)}
                     >
                       View on Map
@@ -121,6 +123,7 @@ const PlacesTable = ({ onSelectPlace, showSavedLocations = true })  => {
 
       {isModalOpen && <PlacesModal onClose={() => setIsModalOpen(false)} onAddPlace={handleAddPlace} />}
       {isAlertOpen && <AlertModal message="Location saved successfully!" onClose={() => setIsAlertOpen(false)} />}
+    </div>
     </div>
   );
 };

@@ -78,17 +78,21 @@ const Dashboard = () => {
     console.log('Selected place:', place);
   };
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen w-full">
       <Sidebar onNavigate={handleNavigation} activePage={activePage} />
       <div className="flex-1 p-4 flex flex-col">
         <Navbar user={user} onSignOut={handleSignOut} />
-        <h1 className="text-center text-2xl font-bold mb-4">Ibadan MetroHub Locator</h1>
-        
+     
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col md:flex-row gap-4">
+        <div className="flex-1 flex flex-col md:flex-row gap-4 mt-8">
           <div className="flex-1">
             {/* Pass the places and the onSelectPlace handler to PlacesTable */}
-            <PlacesTable places={places} onSelectPlace={handleSelectPlace} showSavedLocations={false} />
+            <PlacesTable 
+            places={places} 
+            onSelectPlace={handleSelectPlace} 
+            showSavedLocations={false}
+             page="dashboard" 
+             />
           </div>
           <div className="flex-2">
             {/* Pass the selected place to MapComponent */}
