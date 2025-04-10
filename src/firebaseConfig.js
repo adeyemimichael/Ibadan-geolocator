@@ -3,13 +3,13 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"; // Import Firestore
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAwYhHS5Bgy6kSJqWOgdUJuMulu821Xn84",
-  authDomain: "ibadanmetrolocator.firebaseapp.com",
-  projectId: "ibadanmetrolocator",
-  storageBucket: "ibadanmetrolocator.firebasestorage.app",
-  messagingSenderId: "878285573471",
-  appId: "1:878285573471:web:3cdfa3b95e472a030a7aea",
-  measurementId: "G-H7TW8GBGW8"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
+  measurementId: import.meta.env.VITE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
@@ -20,4 +20,4 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const db = getFirestore(app); // Initialize Firestore
 
-export { auth, provider, db }; // Export db
+export { auth, provider, db };

@@ -79,14 +79,6 @@ export const placesData = [
         "ticketFee": "₦500",
         "image": "https://example.com/lekan-salami-stadium.jpg"
     },
-    {
-        "id": 10,
-        "name": "Lekan Salami Stadium",
-        "latitude": 7.4079, 
-        "longitude": 3.9163,
-        "ticketFee": "₦500",
-        "image": "https://example.com/lekan-salami-stadium.jpg"
-    },
     
 
 ];
