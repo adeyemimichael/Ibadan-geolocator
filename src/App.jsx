@@ -13,13 +13,14 @@ function App() {
     <Router>
       <Routes>
         {/* Redirect to dashboard if logged in, else show login */}
-        <Route path="/" element={!user ? <Login setUser={setUser} /> : <Navigate to="/dashboard" />} />
-        <Route path="/dashboard" element={user ? <Dashboard user={user} /> : <Navigate to="/" />} />
+        <Route path="/" element={<Login/>} />
+        <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/places" element={<PlacesTable />} />
         <Route path ="/users" element ={<SavedLocations />} />
       </Routes>
     </Router>
   );
 }
-
+// !user ? <Login setUser={setUser} /> : <Navigate to="/dashboard" />
+// user ? <Dashboard user={user} /> : <Navigate to="/" />
 export default App;
