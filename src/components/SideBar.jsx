@@ -1,11 +1,12 @@
 import React from "react";
-import { FiMapPin, FiHome, FiUsers, FiLogOut } from "react-icons/fi";
+import { FiMapPin, FiHome, FiUsers, FiLogOut, FiFolder } from "react-icons/fi";
 
 const Sidebar = ({ onNavigate, activePage }) => {
   const menuItems = [
     { name: "Dashboard", icon: <FiHome />, page: "dashboard" },
     { name: "Places", icon: <FiMapPin />, page: "places" },
     { name: "Users", icon: <FiUsers />, page: "users" },
+    {name: "Ibadan Gallery", icon: <FiFolder/>, page: "gallery"}
   ];
 
   return (

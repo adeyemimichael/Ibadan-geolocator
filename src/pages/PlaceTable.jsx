@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { placesData } from "../data/placeData"; // Assuming placesData is available
 import PlacesModal from "../components/modal/PlacesModal";
 import AlertModal from "../components/modal/AlertModal";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import Sidebar from "../components/SideBar";
 const PlacesTable = ({ page,  onSelectPlace, showSavedLocations = true })  => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -10,6 +12,8 @@ const PlacesTable = ({ page,  onSelectPlace, showSavedLocations = true })  => {
   const [localPlaces, setLocalPlaces] = useState(placesData);
   const [savedLocations, setSavedLocations] = useState([]);
 
+
+  
   useEffect(() => {
     const storedLocations = JSON.parse(localStorage.getItem("savedLocations")) || [];
     setSavedLocations(storedLocations);
@@ -26,13 +30,14 @@ const PlacesTable = ({ page,  onSelectPlace, showSavedLocations = true })  => {
     place.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleAddPlace = (newPlace) => {
-    setLocalPlaces([...localPlaces, newPlace]);
+  const handleAddLocation = (newPlace) => {
+    setPlaces((prevPlaces) => [...prevPlaces, newPlace]); // Append new place
   };
+  
 
   return (
     <div className="p-4 bg-gray-50 min-h-screen flex">
-      <Sidebar/>
+      
       {/* Search and Add Button */}
       <div className="inline-block ml-4">
       <div className="flex flex-col md:flex-row items-center justify-between mb-4">
@@ -50,7 +55,9 @@ const PlacesTable = ({ page,  onSelectPlace, showSavedLocations = true })  => {
           Add New Place
         </button>
       </div>
-
+      {isModalOpen && (
+        <PlacesModal onClose={() => setIsModalOpen(false)} onSave={handleAddLocation} />
+      )}
       {/* Bento Grid Layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Table for Viewing Places on Map */}
@@ -121,7 +128,7 @@ const PlacesTable = ({ page,  onSelectPlace, showSavedLocations = true })  => {
       </div>
 
 
-      {isModalOpen && <PlacesModal onClose={() => setIsModalOpen(false)} onAddPlace={handleAddPlace} />}
+      {isModalOpen && <PlacesModal onClose={() => setIsModalOpen(false)} onAddPlace={handleAddLocation} />}
       {isAlertOpen && <AlertModal message="Location saved successfully!" onClose={() => setIsAlertOpen(false)} />}
     </div>
     </div>

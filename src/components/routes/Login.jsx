@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { signInWithPopup } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import { auth, provider, db } from "../firebaseConfig"; // Ensure db is initialized in firebaseConfig
+import { auth, provider, db } from "../../firebaseConfig"; // Ensure db is initialized in firebaseConfig
 
 const Login = ({ setUser }) => {
   const [loading, setLoading] = useState(false);

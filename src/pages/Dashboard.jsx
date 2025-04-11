@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Navbar from '../components/NavBar';
-import Sidebar from '../components/SideBar'; // Import Sidebar component
+
 import MapComponent from '../components/MapComponent'; // Assuming you have this in a separate file
 import PlacesTable from './PlaceTable'; // Import PlacesTable component
 
@@ -79,12 +79,12 @@ const Dashboard = () => {
   };
   return (
     <div className="flex h-screen w-full">
-      <Sidebar onNavigate={handleNavigation} activePage={activePage} />
+      {/* <Sidebar onNavigate={handleNavigation} activePage={activePage} /> */}
       <div className="flex-1 p-4 flex flex-col">
         <Navbar user={user} onSignOut={handleSignOut} />
      
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col md:flex-row gap-4 mt-8">
+        <div className="flex-1 flex flex-col md:flex-row gap-4 mt-8 ">
           <div className="flex-1">
             {/* Pass the places and the onSelectPlace handler to PlacesTable */}
             <PlacesTable 

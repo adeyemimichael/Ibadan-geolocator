@@ -37,10 +37,11 @@ const AddLocationModal = ({ onClose, onSave }) => {
       name,
       ticketPrice,
       image,
-      position: [location.lat, location.lng],
+      position: [location.lat, location.lng], // Store lat/lng as an array
     };
-
-    onSave(newPlace);
+  
+    onSave(newPlace); // Send data to parent component
+    onClose(); // Close modal
 
     // Clear form fields
     setName('');
