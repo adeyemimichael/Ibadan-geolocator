@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import Navbar from '../components/NavBar';
+import Navbar from '../components/ui/NavBar';
 
-import MapComponent from '../components/MapComponent'; // Assuming you have this in a separate file
+import MapComponent from '../components/ui/MapComponent'; // Assuming you have this in a separate file
 import PlacesTable from './PlaceTable'; // Import PlacesTable component
 
 // Dashboard Component (Main Container)
@@ -74,31 +74,34 @@ const Dashboard = () => {
   // Function to handle when a place is selected
   const handleSelectPlace = (place) => {
     setSelectedPlace(place);
-    // You can also add other logic to handle the selected place, like displaying more info
+    
     console.log('Selected place:', place);
   };
   return (
     <div className="flex h-screen w-full">
-      {/* <Sidebar onNavigate={handleNavigation} activePage={activePage} /> */}
+    
       <div className="flex-1 p-4 flex flex-col">
         <Navbar user={user} onSignOut={handleSignOut} />
      
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col md:flex-row gap-4 mt-8 ">
-          <div className="flex-1">
-            {/* Pass the places and the onSelectPlace handler to PlacesTable */}
-            <PlacesTable 
-            places={places} 
-            onSelectPlace={handleSelectPlace} 
-            showSavedLocations={false}
-             page="dashboard" 
-             />
-          </div>
-          <div className="flex-2">
-            {/* Pass the selected place to MapComponent */}
-            <MapComponent selectedPlace={selectedPlace} />
-          </div>
-        </div>
+        <div className="flex flex-col gap-4 mt-8">
+  {/* Second Container (Map Component) - Now at the top */}
+  <div className="w-full">
+    <MapComponent selectedPlace={selectedPlace} />
+  </div>
+  
+  {/* First Container (Places Table) - Now at the bottom */}
+  <div className="w-full h-full">
+    <PlacesTable 
+      places={places} 
+      onSelectPlace={handleSelectPlace} 
+      showSavedLocations={false}
+      page="dashboard" 
+    />
+  </div>
+</div>
+
+
       </div>
     </div>
   );

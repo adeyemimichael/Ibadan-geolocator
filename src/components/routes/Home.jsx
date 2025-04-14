@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
-import Sidebar from "../SideBar";
+import Sidebar from "../ui/SideBar";
 
 const Homepage = () => {
   const navigate = useNavigate();

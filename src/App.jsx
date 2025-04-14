@@ -1,20 +1,23 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Login from './components/routes/Login';
+import React from "react";
+
+// Import your pages
 import Dashboard from './pages/Dashboard';
 import PlacesTable from './pages/PlaceTable';
 import SavedLocations from './pages/Users';
-import Homepage from './components/routes/Home';
-import React from "react";
-
-import Sidebar from './components/SideBar';
 import IbadanGallery from './pages/IbadanGallery';
+import LandingPage from './pages/LandingPage'; // ✅ New Landing Page
 
+// Import Sidebar and other components
+import Sidebar from './components/ui/SideBar';
+
+// Layout wraps all dashboard routes and requires authentication
 const Layout = ({ user }) => {
   const navigate = useNavigate();
 
-  // If the user is not logged in, redirect to Login
+  // Redirect unauthenticated users
   if (!user) {
     return <Navigate to="/" replace />;
   }
@@ -27,7 +30,7 @@ const Layout = ({ user }) => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/places" element={<PlacesTable />} />
           <Route path="/users" element={<SavedLocations />} />
-          <Route path="/gallery" element={<IbadanGallery />} /> 
+          <Route path="/gallery" element={<IbadanGallery />} />
         </Routes>
       </div>
     </div>
@@ -35,12 +38,18 @@ const Layout = ({ user }) => {
 };
 
 const App = () => {
-  const [user, setUser] = useState(null); // Track user authentication
+  const [user, setUser] = useState(null); // Auth state
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Login setUser={setUser} />} />
+        {/* Landing Page (Public) */}
+        <Route 
+          path="/" 
+          element={!user ? <LandingPage setUser={setUser} /> : <Navigate to="/dashboard" />} 
+        />
+
+        {/* Dashboard & Protected Routes */}
         <Route path="/*" element={<Layout user={user} />} />
       </Routes>
     </Router>
@@ -48,8 +57,3 @@ const App = () => {
 };
 
 export default App;
-
-
-// !user ? <Login setUser={setUser} /> : <Navigate to="/dashboard" />
-// user ? <Dashboard user={user} /> : <Navigate to="/" />
-
