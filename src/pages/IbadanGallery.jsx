@@ -22,7 +22,7 @@ const IbadanGallery = () => {
 
       try {
         const response = await fetch(
-          `https://api.unsplash.com/search/photos?query=Ibadan&client_id=${unsplashApiKey}`
+          `https://api.unsplash.com/search/photos?query=Ibadanfunplaces&client_id=${unsplashApiKey}`
         );
         const data = await response.json();
         if (response.ok) {
@@ -72,11 +72,11 @@ const IbadanGallery = () => {
 
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center rounded-lg p-6 dark:bg-slate-900">
-      <h1 className="text-3xl text-white mb-4 font-4xl py-6 ">Ibadan Fun and Relaxation Places</h1>
+      <h1 className="text-3xl text-white mb-4">Ibadan Fun and Relaxation Places</h1>
       
       {/* Image Gallery */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full mt-8">
-        <h2 className="col-span-full text-2xl text-white mb-4"> Sight to see Images</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+        <h2 className="col-span-full text-2xl text-white mb-4">Images</h2>
         {loadingImages
           ? Array(6).fill(0).map((_, idx) => (
               <Skeleton key={idx} className="rounded-lg h-48" />
