@@ -13,31 +13,55 @@ const IbadanGallery = () => {
   // Fetching Images from Unsplash
   useEffect(() => {
     const fetchImages = async () => {
-      const unsplashApiKey = import.meta.env.VITE_APP_UNSPLASH_API_KEY;
-      if (!unsplashApiKey) {
-        setErrorImages('Unsplash API Key is not set');
-        setLoadingImages(false);
-        return;
-      }
+  const unsplashApiKey = import.meta.env.VITE_APP_UNSPLASH_API_KEY;
+  if (!unsplashApiKey) {
+    setErrorImages('Unsplash API Key is not set');
+    setLoadingImages(false);
+    return;
+  }
 
-      try {
-        const response = await fetch(
-          `https://api.unsplash.com/search/photos?query=Ibadanfunplaces&client_id=${unsplashApiKey}`
-        );
-        const data = await response.json();
-        if (response.ok) {
-          setImages(data.results);
-        } else {
-          throw new Error('Error fetching images');
-        }
-      } catch (error) {
-        setErrorImages(error.message);
-      } finally {
-        setLoadingImages(false);
-      }
-    };
+  const queryParams = [
+    
+    'University of ibadan',
+  
+  ];
 
-    fetchImages();
+  const allImages = [];
+  setLoadingImages(true);
+
+  try {
+    // Loop through each query term and fetch results
+    for (let query of queryParams) {
+      const response = await fetch(
+        `https://api.unsplash.com/search/photos?query=${query}&client_id=${unsplashApiKey}&per_page=10`
+      );
+      const data = await response.json();
+
+      if (response.ok) {
+        allImages.push(...data.results);
+      } else {
+        throw new Error(`Error fetching images for query: ${query}`);
+      }
+    }
+
+    // Update state with all fetched images
+    setImages(allImages);
+  } catch (error) {
+    setErrorImages(error.message);
+  } finally {
+    setLoadingImages(false);
+  }
+};
+
+fetchImages();
+
+
+    // Refresh images every 30 seconds (30000 milliseconds)
+    const intervalId = setInterval(() => {
+      fetchImages();
+    }, 30000);
+
+    return () => clearInterval(intervalId); // Cleanup on component unmount
   }, []);
 
   // Fetching Videos from YouTube
@@ -68,6 +92,13 @@ const IbadanGallery = () => {
     };
 
     fetchVideos();
+
+    // Refresh videos every 30 seconds (30000 milliseconds)
+    const intervalId = setInterval(() => {
+      fetchVideos();
+    }, 30000);
+
+    return () => clearInterval(intervalId); // Cleanup on component unmount
   }, []);
 
   return (
