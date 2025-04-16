@@ -4,7 +4,7 @@ import { signInWithPopup } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { auth, provider, db } from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
-
+import VideoSrc from '../assets/Tour Nigeria.mp4'
 const LandingPage = ({ setUser }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -35,7 +35,7 @@ const LandingPage = ({ setUser }) => {
       });
 
       // Redirect after successful login
-      navigate("/dashboard"); 
+      navigate("/dashboard");
     } catch (error) {
       console.error("Login error:", error);
       setError("Login failed. Please try again.");
@@ -74,8 +74,21 @@ const LandingPage = ({ setUser }) => {
     <div className="flex flex-col lg:flex-row h-screen">
       {/* Left: Hero Section */}
       <div className="lg:w-1/2 w-full bg-gradient-to-tr from-green-800 via-emerald-600 to-lime-500 text-white flex items-center justify-center p-8 relative overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        >
+          <source src={VideoSrc} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Floating Effect */}
         <div className="absolute top-0 right-0 w-72 h-72 bg-lime-400 opacity-20 rounded-full filter blur-3xl animate-pulse"></div>
 
+        {/* Text Content */}
         <div className="z-10 text-center max-w-xl">
           <AnimatedText text="Welcome to Ibadan Locator" />
           <motion.p
