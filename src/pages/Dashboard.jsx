@@ -3,8 +3,8 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Navbar from '../components/ui/NavBar';
 
-import MapComponent from '../components/ui/MapComponent'; // Assuming you have this in a separate file
-import PlacesTable from './PlaceTable'; // Import PlacesTable component
+import MapComponent from '../components/ui/MapComponent'; 
+import PlacesTable from './PlaceTable'; 
 
 // Dashboard Component (Main Container)
 const Dashboard = () => {

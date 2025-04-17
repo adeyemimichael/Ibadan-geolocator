@@ -10,14 +10,14 @@ const Sidebar = ({ onNavigate, activePage }) => {
   ];
 
   return (
-    <aside className="w-64 h-screen bg-green-800 text-white flex flex-col">
+    <aside className="w-64 h-screen bg-green-600 text-white flex flex-col">
       <h2 className="text-xl font-bold p-4">IbadanSITI</h2>
       <nav className="flex-1">
         {menuItems.map((item) => (
           <button
             key={item.page}
             onClick={() => onNavigate(item.page)}
-            className={`flex items-center px-4 py-3 w-full text-left hover:bg-green-700 ${
+            className={`flex items-center px-4 py-3 w-full text-left hover:bg-green-600 ${
               activePage === item.page ? "bg-green-600" : ""
             }`}
           >
