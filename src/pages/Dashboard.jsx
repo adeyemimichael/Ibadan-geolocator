@@ -31,7 +31,7 @@ const Dashboard = () => {
 
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [user, setUser] = useState(null);
-  const [activePage, setActivePage] = useState('dashboard'); // To highlight active page in sidebar
+  const [activePage, setActivePage] = useState('dashboard'); 
 
   const auth = getAuth();
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ const Dashboard = () => {
         });
       } else {
         setUser(null);
-        navigate("/login"); // Redirect to login if not authenticated
+        navigate("/");
       }
     });
 
