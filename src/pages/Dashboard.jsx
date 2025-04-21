@@ -55,7 +55,7 @@ const Dashboard = () => {
   const handleSignOut = async () => {
     try {
       await signOut(auth);
-      navigate("/"); // Redirect after sign out
+      navigate("/"); 
     } catch (error) {
       console.error("Sign-out error:", error.message);
     }
@@ -65,13 +65,13 @@ const Dashboard = () => {
     if (page === 'logout') {
       handleSignOut();
     } else {
-      setActivePage(page); // Set active page for sidebar highlighting
-      navigate(`/${page}`); // Navigate to selected page
+      setActivePage(page);
+      navigate(`/${page}`); 
     }
   };
 
 
-  // Function to handle when a place is selected
+  
   const handleSelectPlace = (place) => {
     setSelectedPlace(place);
     
@@ -85,18 +85,16 @@ const Dashboard = () => {
      
         {/* Main Content Area */}
         <div className="flex flex-col gap-4 mt-8">
-  {/* Second Container (Map Component) - Now at the top */}
+  
   <div className="w-full">
     <MapComponent selectedPlace={selectedPlace} />
   </div>
-  
-  {/* First Container (Places Table) - Now at the bottom */}
   <div className="w-full h-full">
     <PlacesTable 
       places={places} 
       onSelectPlace={handleSelectPlace} 
       showSavedLocations={false}
-      page="dashboard" 
+      page="mapcomponent" 
     />
   </div>
 </div>

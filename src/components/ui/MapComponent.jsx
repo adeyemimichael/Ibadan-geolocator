@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-
-// This component handles smooth zooming and panning of the map
+ 
 const SetMapView = ({ position, zoom }) => {
   const map = useMap();
 
@@ -18,10 +17,10 @@ const SetMapView = ({ position, zoom }) => {
 
 // Map Component
 const MapComponent = ({ selectedPlace }) => {
-  const [position, setPosition] = useState([7.3775, 3.9470]); // Default: Ibadan
-  const [zoom, setZoom] = useState(13); // Default zoom level
+  const [position, setPosition] = useState([7.3775, 3.9470]); 
+  const [zoom, setZoom] = useState(13);
 
-  // Update user location (if enabled)
+  
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (pos) => setPosition([pos.coords.latitude, pos.coords.longitude]),
@@ -29,17 +28,17 @@ const MapComponent = ({ selectedPlace }) => {
     );
   }, []);
 
-  // Update map position based on the selected place
+  
   useEffect(() => {
     if (selectedPlace) {
       setPosition(selectedPlace.position);
-      setZoom(15); // Zoom in when a place is selected
+      setZoom(15); 
     }
   }, [selectedPlace]);
 
   // Custom marker icon
   const customIcon = new L.Icon({
-    iconUrl: "https://example.com/custom-marker-icon.png", // Your custom marker icon URL
+    iconUrl: "https://example.com/custom-marker-icon.png", 
     iconSize: [30, 30],
     iconAnchor: [15, 30],
     popupAnchor: [0, -30],
