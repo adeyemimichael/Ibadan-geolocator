@@ -17,7 +17,7 @@ const Sidebar = ({ onNavigate, activePage }) => {
           <button
             key={item.page}
             onClick={() => onNavigate(item.page)}
-            className={`flex items-center px-4 py-3 w-full text-left hover:bg-green-600 ${
+            className={`flex items-center px-4 py-3  cursor-pointer w-full text-left hover:bg-green-600 ${
               activePage === item.page ? "bg-green-600" : ""
             }`}
           >
@@ -28,10 +28,10 @@ const Sidebar = ({ onNavigate, activePage }) => {
       </nav>
       <button
         onClick={() => onNavigate("logout")}
-        className="flex items-center px-4 py-3 w-full text-left hover:bg-red-600"
+        className="flex items-center px-4 py-3 cursor-pointer w-full text-left hover:bg-red-600"
       >
         <FiLogOut />
-        <span className="ml-3">Logout</span>
+        <span className="ml-3 cursor-pointer">Logout</span>
       </button>
     </aside>
   );

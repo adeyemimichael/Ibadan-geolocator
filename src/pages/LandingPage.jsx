@@ -156,7 +156,7 @@ const LandingPage = ({ setUser }) => {
           <button
             onClick={handleGoogleLogin}
             disabled={loading}
-            className="bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 w-full"
+            className="bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg cursor-pointer transition-all duration-300 w-full"
           >
             {loading ? "Signing in..." : "Sign in with Google"}
           </button>
@@ -178,7 +178,7 @@ const LandingPage = ({ setUser }) => {
                 value={formData.username}
                 onChange={handleChange}
                 required
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full border cursor-pointer border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
             <div>
@@ -193,7 +193,7 @@ const LandingPage = ({ setUser }) => {
               />
             </div>
             <div>
-              <label className="block text-left text-gray-700 font-medium mb-2">Password</label>
+              <label className="block text-left text-gray-700 font-medium mb-2 cursor-pointer">Password</label>
               <input
                 type="password"
                 name="password"
@@ -206,9 +206,9 @@ const LandingPage = ({ setUser }) => {
             <button
               type="submit"
               disabled={loading}
-              className="bg-green-600 hover:bg-green-800 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 w-full"
+              className="bg-green-600 hover:bg-green-800 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 w-full cursor-pointer"
             >
-              {loading ? "Signing in..." : "Sign in with Form"}
+              {loading ? "Signing in..." : "Sign in"}
             </button>
             {error && <p className="text-red-500 text-sm text-center mt-3">{error}</p>}
           </form>

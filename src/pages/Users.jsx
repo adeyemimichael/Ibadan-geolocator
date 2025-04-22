@@ -16,7 +16,7 @@ const SavedLocations = () => {
 
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Saved Locations</h2>
+      <h2 className="text-xl font-bold mb-4 ">Saved Locations</h2>
       {savedLocations.length === 0 ? (
         <p>No saved locations yet.</p>
       ) : (
@@ -25,7 +25,7 @@ const SavedLocations = () => {
             <li key={place.id} className="border p-2 flex justify-between">
               <span>{place.name}</span>
               <button
-                className="bg-red-500 text-white px-2 py-1 rounded"
+                className= " cursor-pointer bg-red-500 text-white px-2 py-1 rounded"
                 onClick={() => handleRemove(place.id)}
               >
                 Remove

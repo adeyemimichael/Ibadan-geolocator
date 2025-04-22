@@ -138,7 +138,7 @@ const Dashboard = () => {
               />
               <button
               onClick={() => setShowModal(true)}
-              className="mb-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+              className=" cursor-pointer mb-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
             >
               + Add New Place
             </button>
@@ -163,7 +163,7 @@ const Dashboard = () => {
                     <td className="border p-2">{place.ticketFee}</td>
                     <td className="border p-2">
                       <button
-                        className="px-4 py-1 bg-blue-600 text-white rounded"
+                        className=" cursor-pointer px-4 py-1 bg-blue-600 text-white rounded"
                         onClick={() => handleSelectPlace(place)}
                       >
                         View
