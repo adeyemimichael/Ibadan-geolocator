@@ -11,9 +11,6 @@ const PlacesTable = ({ page,  onSelectPlace, showSavedLocations = true })  => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
   const [localPlaces, setLocalPlaces] = useState(placesData);
   const [savedLocations, setSavedLocations] = useState([]);
-
-
-  
   useEffect(() => {
     const storedLocations = JSON.parse(localStorage.getItem("savedLocations")) || [];
     setSavedLocations(storedLocations);
