@@ -96,7 +96,9 @@ Directory structure:
     └── .flowbite-react/
         ├── config.json
         └── .gitignore
+
 ---
+```
 
 ## 🧪 **How It Works (Step-by-Step)**
 
