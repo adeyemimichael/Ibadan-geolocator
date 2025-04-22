@@ -157,10 +157,9 @@ Directory structure:
 
 ## 👤 **Contributor**
 
-##Ayobami Akande
+Ayobami Akande
 Passionate about building systems that solve real-world problems and enhance local discovery.
-
-##Discord handle (adeyemi123) 
+[Discord handle] (adeyemi123) 
 ---------
 ## 🙌 **Acknowledgments**
 
