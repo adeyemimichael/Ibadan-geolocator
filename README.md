@@ -1,99 +1,141 @@
-# 🗺️ Ibadan Siti - Discover Fun Places in Ibadan
-Ibadan SITI is an interactive web application that helps users explore various places in Ibadan. Users can view, add, and share places, and the platform provides an interactive map to explore locations.
+# 🗺️ **Ibadan Siti – Discover Fun Places in Ibadan**  
+**MIT License | React | Leaflet | Tailwind CSS**
 
-## 📂 Folder Structure
+**Ibadan SITI** is a modern, interactive web application that helps users discover and share exciting locations within Ibadan. With a rich UI, interactive map, and place-saving functionality, users can explore parks, malls, restaurants, and more, all in one platform.
 
+---
 
+## 🚀 **How It Works**
 
-## 🚀 Features
+Ibadan SITI is built using **React** and integrates **Leaflet.js** via **React Leaflet** to render real-time interactive maps. Users can:
 
-### ✔️ Places Table (Sidebar)
-- Displays a list of exciting places with their names, ticket fees, and thumbnails.
-- Search bar to dynamically filter places.
-- "View on Map" button highlights the selected location on the interactive map.
-- Option to save places to **localStorage**.
-- Copyable link for each saved location for easy sharing.
+- View a curated list of locations with ticket fees and thumbnails.
+- Add new places through a user-friendly modal.
+- Instantly zoom into locations using map integration.
+- Save favorite spots to localStorage and share with friends using unique links.
 
-### 🌍 Map Integration
-- Interactive map powered by **React Leaflet** and **Leaflet.js**.
-- Automatically detects and shows the user’s current location.
-- Displays markers for fun spots such as parks, malls, restaurants, etc.
-- Zoom feature to highlight specific locations on the map when "View on Map" is clicked.
+State is managed using React, with **Tailwind CSS** ensuring a responsive, mobile-first design.
 
-### ➕ Modal (Add New Place)
-- Add new places via a modal form.
-- Fields include: place name, ticket fee, latitude, longitude, and image URL.
-- Once submitted, the new place is added to the main list and reflected on the map.
+---
 
-### 🧭 Navbar
-- Displays app name/logo.
-- Responsive design with a mobile toggle for easier navigation.
-- Placeholder sign-out functionality.
+## ✨ **Features**
 
-## 🛠️ Tech Stack
+| Feature | Description |
+|--------|-------------|
+| 🔍 **Places Table (Sidebar)** | View a dynamic list of locations, search places, save favorites, and copy shareable links. |
+| 🌍 **Interactive Map** | View markers of fun spots with real-time geolocation and zoom functionality. |
+| ➕ **Add New Place Modal** | Add custom places using a form (name, ticket fee, coordinates, image URL). |
+| 🧭 **Navbar** | Clean, responsive navbar with mobile toggle and sign-out placeholder. |
+| 💾 **Local Storage** | Save favorite places to revisit anytime without backend storage. |
 
-- **React** - Frontend framework
-- **Tailwind CSS** - For styling and responsive layout
-- **React Leaflet** & **Leaflet.js** - For interactive map integration
-- **React Router DOM** - For navigation
-- **React Icons** - For icons and UI components
-- **localStorage** - For storing saved places
+---
 
-## 📂 Folder Structure
-src/ ├── components/ │ ├── PlacesTable.jsx # Core logic for displaying, saving, sharing places │ ├── PlacesModal.jsx # Modal form for adding new places │ ├── Navbar.jsx # Navbar component with mobile toggle and user info │ ├── MapComponent.jsx # Interactive map component with user location detection ├── data/ │ └── placeData.js # Static data for initial places ├── App.js # Main app component to display everything └── index.js # React entry point
+## 🛠️ **Tech Stack**
 
-## 💡 How It Works
+- **React** – Frontend framework
+- **Tailwind CSS** – Utility-first styling
+- **React Leaflet & Leaflet.js** – Map rendering and interaction
+- **React Router DOM** – Page routing
+- **React Icons** – Lightweight, scalable icons
+- **localStorage** – In-browser data persistence
 
-1. **Displaying Locations**: The app shows a list of fun places in a sidebar with names, ticket fees, and images.
-2. **Saving Locations**: Users can save places to **localStorage**, allowing them to access the locations later.
-3. **Sharing Links**: Each saved location has a unique link that can be copied for sharing.
-4. **Adding Places**: A modal allows users to add new places with necessary details like name, ticket fee, coordinates, and an image URL.
-5. **Map Interaction**: The interactive map displays markers for all the places. Clicking on "View on Map" zooms in on a selected place.
+---
 
-## 🏁 Getting Started
+## 📁 **Folder Structure**
 
-To run the project locally:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/adeyemichael/geolocator-app.git
-   cd geolocator-app 
-   ```
-2. Install dependencies:
- ``` bash
- npm install
+```bash
+src/
+├── components/
+│   ├── PlacesTable.jsx 
+# Displays, saves, and shares places
+│   ├── PlacesModal.jsx        # Modal form to add new places
+│   ├── Navbar.jsx             # Responsive navbar
+│   └── MapComponent.jsx       # Interactive map with markers
+├── data/
+│   └── placeData.js           # Static data for sample places
+├── App.js                     # Main app logic and layout
+└── index.js   
+# React entry point
 ```
 
-## 🚀 Features
+---
 
-- Display and share places.
-- Interactive map for location exploration.
-- Responsive design with Tailwind CSS.
-- Modal for adding new places.
-- User-friendly UI using React and React Leaflet.
+## 🧪 **How It Works (Step-by-Step)**
 
-## 🛠️ Future Enhancements
+1. **View Locations**: Sidebar displays places with image, name, and fees.
+2. **Map Navigation**: "View on Map" zooms in on selected place.
+3. **User Geolocation**: Map auto-detects and shows user's current location.
+4. **Save & Share**: Save places in localStorage and share them via a unique link.
+5. **Add New Place**: Open the modal to submit new location data which appears instantly in the table and map.
 
-- Integrate a backend for persistent data storage.
-- Implement user authentication and profiles.
-- Add filters to categorize places (e.g., restaurants, parks, historical sites).
-- Implement image previews in the places table.
+---
 
-## 📄 License
+## 🏁 **Getting Started**
 
-This project is licensed under the MIT License. Feel free to use, modify, and contribute!
+### Prerequisites
 
-## 🙌 Acknowledgments
+- Node.js (v14+)
+- npm
 
-- **Leaflet.js** - Leaflet for interactive maps.
-- **React Leaflet** - React Leaflet for integrating Leaflet into React.
-- **Tailwind CSS** - Tailwind CSS for responsive design.
-- **React Icons** - React Icons for UI icons.
+### Setup Instructions
 
-## 👤 Author
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/adeyemichael/ibadan-geolocator.git
+   cd ibadan-geolocator
+   ```
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 📈 **Future Enhancements**
+
+- Backend integration for data persistence
+- User authentication and profile management
+- Categorize places with filters (parks, restaurants, etc.)
+- Image preview thumbnails in the table
+
+---
+
+## 🎨 **Why Use Ibadan Siti?**
+
+- Discover exciting places around you in Ibadan.
+- Save, share, and explore with just a few clicks.
+- Responsive UI for all screen sizes.
+- Ideal for locals, tourists, and event planners.
+
+---
+
+## 👤 **Author**
 
 **Ayobami Akande**  
+*Software Engineer | Map Enthusiast | Problem Solver*  
+Passionate about building systems that solve real-world problems and enhance local discovery.
+---------
+## 🙌 **Acknowledgments**
 
+- [Leaflet.js](https://leafletjs.com/) – Open-source JavaScript library for maps.
+- [React Leaflet](https://react-leaflet.js.org/) – React wrapper for Leaflet.
+- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework.
+- [React Icons](https://react-icons.github.io/react-icons/) – Icons as React components.
+## 🛠️ APIs Used
 
-Passionate about building systems that solve real-life problems, with a focus on software engineering and development.
+- **OpenStreetMap** – Provides map tiles and geographical data for rendering the interactive map.
+- **Geoapify** – Used for geolocation services like address lookups and user location detection.
+- **Unsplash API** – Fetches high-quality images for places added or explored in the app.
+- **Google Earth API** – Allows enhanced satellite view and geographic visualization for more immersive map experiences.
+
+## 📄 **License**
+
+This project is licensed under the **MIT License**. See the LICENSE file for full details.
+
 
