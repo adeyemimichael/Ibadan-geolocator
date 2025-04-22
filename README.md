@@ -153,13 +153,15 @@ Directory structure:
 - Responsive UI for all screen sizes.
 - Ideal for locals, tourists, and event planners.
 
----
+-------
 
 ## 👤 **Contributor**
 
 Ayobami Akande
 Passionate about building systems that solve real-world problems and enhance local discovery.
 [Discord handle] (adeyemi123) 
+
+
 ---------
 ## 🙌 **Acknowledgments**
 
