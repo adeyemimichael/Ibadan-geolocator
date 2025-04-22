@@ -44,20 +44,58 @@ State is managed using React, with **Tailwind CSS** ensuring a responsive, mobil
 ## 📁 **Folder Structure**
 
 ```bash
-src/
-├── components/
-│   ├── PlacesTable.jsx 
-# Displays, saves, and shares places
-│   ├── PlacesModal.jsx        # Modal form to add new places
-│   ├── Navbar.jsx             # Responsive navbar
-│   └── MapComponent.jsx       # Interactive map with markers
-├── data/
-│   └── placeData.js           # Static data for sample places
-├── App.js                     # Main app logic and layout
-└── index.js   
-# React entry point
-```
-
+Directory structure:
+└──ibadan-geolocator/
+    ├── README.md
+    ├── eslint.config.js
+    ├── index.html
+    ├── License.txt
+    ├── package.json
+    ├── vite.config.js
+    ├── public/
+    │   └── index.html
+    ├── server/
+    │   ├── index.js
+    │   ├── package-lock.json
+    │   ├── package.json
+    │   ├── routes/
+    │   │   └── places.js
+    │   └── scraper/
+    │       └── tripAdvisor.js
+    ├── src/
+    │   ├── App.css
+    │   ├── App.jsx
+    │   ├── firebaseConfig.js
+    │   ├── index.css
+    │   ├── index.js
+    │   ├── main.jsx
+    │   ├── api/
+    │   │   └── fetchPlaces.js
+    │   ├── assets/
+    │   ├── components/
+    │   │   ├── modal/
+    │   │   │   ├── AlertModal.jsx
+    │   │   │   └── PlacesModal.jsx
+    │   │   ├── routes/
+    │   │   │   └── Home.jsx
+    │   │   └── ui/
+    │   │       ├── MapComponent.jsx
+    │   │       ├── NavBar.jsx
+    │   │       └── SideBar.jsx
+    │   ├── data/
+    │   │   └── placeData.js
+    │   ├── hooks/
+    │   │   └── useAuth.js
+    │   └── pages/
+    │       ├── Dashboard.jsx
+    │       ├── IbadanGallery.jsx
+    │       ├── LandingPage.jsx
+    │       ├── PlaceTable.jsx
+    │       ├── test.jsx
+    │       └── Users.jsx
+    └── .flowbite-react/
+        ├── config.json
+        └── .gitignore
 ---
 
 ## 🧪 **How It Works (Step-by-Step)**
