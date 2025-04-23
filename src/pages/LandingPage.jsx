@@ -5,7 +5,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { auth, provider, db } from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import VideoSrc from '../assets/Tour Nigeria.mp4';
-
+import { signInWithEmailAndPassword } from "firebase/auth";
 import useAuth from "../hooks/useAuth";
 
 const LandingPage = ({ setUser }) => {
@@ -60,21 +60,27 @@ const LandingPage = ({ setUser }) => {
         return;
       }
 
-      // For now, just simulate login
-      const simulatedUser = {
-        name: username,
-        email: email,
-        photoURL: null,
-        uid: Date.now().toString(),
-      };
+      const result = await signInWithEmailAndPassword(auth, email, password);
+const user = result.user;
 
-      setUser(simulatedUser);
+setUser({
+  name: user.displayName || username,
+  email: user.email,
+  photoURL: user.photoURL,
+  uid: user.uid,
+});
 
-      await setDoc(doc(db, "users", simulatedUser.uid), {
-        ...simulatedUser,
-        createdAt: new Date(),
-        method: "form",
-      });
+await setDoc(doc(db, "users", user.uid), {
+  name: user.displayName || username,
+  email: user.email,
+  photoURL: user.photoURL,
+  uid: user.uid,
+  createdAt: new Date(),
+  method: "form",
+});
+
+navigate("/dashboard");
+
 
       navigate("/dashboard");
     } catch (err) {

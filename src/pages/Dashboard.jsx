@@ -55,18 +55,14 @@ const Dashboard = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setUser({
-          name: currentUser.displayName || "User",
-          email: currentUser.email,
-        });
-      } else {
-        navigate("/");
-      }
+      if (!currentUser) return navigate("/");
+      setUser({
+        name: currentUser.displayName || "User",
+        email: currentUser.email,
+      });
     });
     return () => unsubscribe();
   }, [auth, navigate]);
-
   const handleSignOut = async () => {
     try {
       await signOut(auth);
