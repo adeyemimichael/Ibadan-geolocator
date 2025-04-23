@@ -167,57 +167,9 @@ navigate("/dashboard");
             {loading ? "Signing in..." : "Sign in with Google"}
           </button>
 
-          {/* Divider */}
-          <div className="flex items-center my-6">
-            <hr className="flex-grow border-gray-300" />
-            <span className="mx-3 text-gray-400">OR</span>
-            <hr className="flex-grow border-gray-300" />
-          </div>
+        
 
-          {/* Form Sign-In */}
-          <form onSubmit={handleFormLogin} className="space-y-5">
-            <div>
-              <label className="block text-left text-gray-700 font-medium mb-2">Username</label>
-              <input
-                type="text"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
-                required
-                className="w-full border cursor-pointer border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
-            </div>
-            <div>
-              <label className="block text-left text-gray-700 font-medium mb-2">Email</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
-            </div>
-            <div>
-              <label className="block text-left text-gray-700 font-medium mb-2 cursor-pointer">Password</label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={loading}
-              className="bg-green-600 hover:bg-green-800 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 w-full cursor-pointer"
-            >
-              {loading ? "Signing in..." : "Sign in"}
-            </button>
-            {error && <p className="text-red-500 text-sm text-center mt-3">{error}</p>}
-          </form>
+         
         </motion.div>
       </div>
     </div>
