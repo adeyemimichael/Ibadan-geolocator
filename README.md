@@ -158,9 +158,10 @@ Directory structure:
 ## 👤 **Contributor**
 [Ayobami Akande](https://github.com/adeyemimichael)
 Passionate about building systems that solve real-world problems and enhance local discovery.
-- [Discord handle](https://discord.com/channels/895564164783808523/1084499262144000021) 
+- [Discord handle -adeyemi123](https://discord.com/users/adeyemi123) 
 
-
+## Demo video
+- [Video Demo](https://drive.google.com/file/d/14o3aEKTqZGuCufts_0MYWnlfaJi-C2NJ/view?usp=sharing)
 ---------
 ## 🙌 **Acknowledgments**
 
