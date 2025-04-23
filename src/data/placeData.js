@@ -82,3 +82,16 @@ export const placesData = [
     
 
 ];
+const apiKey = import.meta.env.VITE_GEOAPIFY_API_KEY;
+const fetchNearbyPlaces = async () => {
+    const res = await fetch(`https://api.geoapify.com/v2/places?categories=entertainment.amusement_park,leisure.park,tourism.attraction&filter=circle:3.8964,7.3776,5000&limit=20&apiKey=${apiKey}`);
+    const data = await res.json();
+    return data.features.map(place => ({
+      name: place.properties.name,
+      address: place.properties.formatted,
+      category: place.properties.categories?.[0] || "N/A",
+      lat: place.properties.lat,
+      lon: place.properties.lon,
+    }));
+  };
+  

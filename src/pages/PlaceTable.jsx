@@ -4,7 +4,7 @@ import PlacesModal from "../components/modal/PlacesModal";
 import AlertModal from "../components/modal/AlertModal";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import Sidebar from "../components/ui/SideBar";
+
 const PlacesTable = ({ page,  onSelectPlace, showSavedLocations = true })  => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);

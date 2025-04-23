@@ -64,42 +64,42 @@ fetchImages();
     return () => clearInterval(intervalId); // Cleanup on component unmount
   }, []);
 
-  // Fetching Videos from YouTube
-  useEffect(() => {
-    const fetchVideos = async () => {
-      const youtubeApiKey = import.meta.env.VITE_APP_YOUTUBE_API_KEY;
-      if (!youtubeApiKey) {
-        setErrorVideos('YouTube API Key is not set');
-        setLoadingVideos(false);
-        return;
-      }
+  // // Fetching Videos from YouTube
+  // useEffect(() => {
+  //   const fetchVideos = async () => {
+  //     const youtubeApiKey = import.meta.env.VITE_APP_YOUTUBE_API_KEY;
+  //     if (!youtubeApiKey) {
+  //       setErrorVideos('YouTube API Key is not set');
+  //       setLoadingVideos(false);
+  //       return;
+  //     }
 
-      try {
-        const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?part=snippet&q=Ibadan&key=${youtubeApiKey}`
-        );
-        const data = await response.json();
-        if (response.ok) {
-          setVideos(data.items);
-        } else {
-          throw new Error('Error fetching videos');
-        }
-      } catch (error) {
-        setErrorVideos(error.message);
-      } finally {
-        setLoadingVideos(false);
-      }
-    };
+  //     try {
+  //       const response = await fetch(
+  //         `https://www.googleapis.com/youtube/v3/search?part=snippet&q=Ibadan&key=${youtubeApiKey}`
+  //       );
+  //       const data = await response.json();
+  //       if (response.ok) {
+  //         setVideos(data.items);
+  //       } else {
+  //         throw new Error('Error fetching videos');
+  //       }
+  //     } catch (error) {
+  //       setErrorVideos(error.message);
+  //     } finally {
+  //       setLoadingVideos(false);
+  //     }
+  //   };
 
-    fetchVideos();
+  //   fetchVideos();
 
-    // Refresh videos every 30 seconds (30000 milliseconds)
-    const intervalId = setInterval(() => {
-      fetchVideos();
-    }, 30000);
+    // // Refresh videos every 30 seconds (30000 milliseconds)
+    // const intervalId = setInterval(() => {
+    //   fetchVideos();
+    // }, 30000);
 
-    return () => clearInterval(intervalId); // Cleanup on component unmount
-  }, []);
+  //   return () => clearInterval(intervalId); // Cleanup on component unmount
+  // }, []);
 
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center rounded-lg p-6 dark:bg-slate-900">
