@@ -26,13 +26,7 @@ const Sidebar = ({ onNavigate, activePage }) => {
           </button>
         ))}
       </nav>
-      <button
-        onClick={() => onNavigate("logout")}
-        className="flex items-center px-4 py-3 cursor-pointer w-full text-left hover:bg-red-600"
-      >
-        <FiLogOut />
-        <span className="ml-3 cursor-pointer">Logout</span>
-      </button>
+      
     </aside>
   );
 };
