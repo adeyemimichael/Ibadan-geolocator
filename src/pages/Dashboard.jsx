@@ -63,14 +63,15 @@ const Dashboard = () => {
     });
     return () => unsubscribe();
   }, [auth, navigate]);
-  const handleSignOut = async () => {
-    try {
-      await signOut(auth);
-      navigate("/");
-    } catch (error) {
-      console.error("Sign-out error:", error.message);
-    }
-  };
+ const handleSignOut = async () => {
+     try {
+       await signOut(auth);
+       setUser(null);
+       navigate("/");
+     } catch (error) {
+       console.error("Sign-out error:", error.message);
+     }
+   };
 
   const handleSelectPlace = (place) => {
     setSelectedPlace(place);
